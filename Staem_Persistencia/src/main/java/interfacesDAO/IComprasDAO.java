@@ -8,6 +8,6 @@ package interfacesDAO;
  *
  * @author HP
  */
-public class compradoresDAO {
+public class IComprasDAO {
     
 }
