@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package interfacesDAO;
+
+import dominio.Comprador;
+import excepciones.SQLException;
 
 /**
  *
  * @author HP
  */
-public class ICompradoresDAO {
+public interface ICompradoresDAO {
     
+    public Comprador agregarComprador(Comprador comprador) throws SQLException;
+    
+    public void eliminarComprador(Comprador comprador) throws SQLException;
+    
+    public Comprador actualizarComprador(Comprador comprador) throws SQLException;
+    
+    public Comprador consultarComprador(Comprador comprador) throws SQLException;
 }

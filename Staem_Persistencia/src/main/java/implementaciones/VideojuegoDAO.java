@@ -28,7 +28,7 @@ public class VideojuegoDAO implements IVideojuegosDAO {
     }
 
     @Override
-    public Videojuego guardarVideojuego(Videojuego videojuego) throws SQLException {
+    public Videojuego agregarVideojuego(Videojuego videojuego) throws SQLException {
         String sql = "insert into videojuegos(estudio, clasificacion, titulo, genero) values(?,?,?,?)";
 
         try (Connection conexion = conexionBD.getConnection();
@@ -50,6 +50,21 @@ public class VideojuegoDAO implements IVideojuegosDAO {
             throw new SQLException("No se pudo guardar el videojuego " + ex.getMessage());
         }
         return null;
+    }
+
+    @Override
+    public void eliminarVideojuego(Videojuego videojuego) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Videojuego actualizarVideojuego(Videojuego videojuego) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Videojuego consultarVideojuego(Videojuego videojuego) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

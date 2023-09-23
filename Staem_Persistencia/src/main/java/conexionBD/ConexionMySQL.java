@@ -14,11 +14,8 @@ public class ConexionMySQL implements IConexionBD {
 
     private Connection connectionBD;
 
-<<<<<<< Updated upstream
-    private String contrasenya = "daniel2002";
-=======
     private String contrasenya = "12345678";
->>>>>>> Stashed changes
+
     private String usuario = "root";
 
     private String HOST = "localhost";
