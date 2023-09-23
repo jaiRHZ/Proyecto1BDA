@@ -1,6 +1,7 @@
 package interfacesDAO;
 
 import dominio.Carrito;
+import excepciones.SQLException;
 
 /**
  *
@@ -8,11 +9,11 @@ import dominio.Carrito;
  */
 public interface ICarritoDAO {
     
-    public Carrito agregarCompra(Carrito carrito);
+    public Carrito agregarCompra(Carrito carrito) throws SQLException;
     
-    public void eliminarCompra(Carrito carrito);
+    public void eliminarCompra(Carrito carrito) throws SQLException;
     
-    public Carrito actualizarCompra(Carrito carrito);
+    public Carrito actualizarCompra(Carrito carrito) throws SQLException;
     
-    public Carrito consultarCompra(Carrito carrito);
+    public Carrito consultarCompra(Carrito carrito) throws SQLException;
 }

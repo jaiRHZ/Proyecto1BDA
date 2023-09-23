@@ -1,10 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package interfacesDAO;
 
 import dominio.Copia;
+import excepciones.SQLException;
 
 /**
  *
@@ -12,12 +10,12 @@ import dominio.Copia;
  */
 public interface ICopiasDAO {
     
-    public Copia agregarCopia(Copia copia);
+    public Copia agregarCopia(Copia copia) throws SQLException;
     
-    public void eliminarCopia(Copia copia);
+    public void eliminarCopia(Copia copia) throws SQLException;
     
-    public Copia actualizarCopia(Copia copia);
+    public Copia actualizarCopia(Copia copia) throws SQLException;
     
-    public Copia consultarCopia(Copia copia);
+    public Copia consultarCopia(Copia copia) throws SQLException;
     
 }

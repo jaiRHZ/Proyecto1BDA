@@ -1,10 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package interfacesDAO;
 
 import dominio.Compra;
+import excepciones.SQLException;
 
 /**
  *
@@ -12,12 +10,12 @@ import dominio.Compra;
  */
 public interface IComprasDAO {
     
-    public Compra agregarCompra(Compra compra);
+    public Compra agregarCompra(Compra compra) throws SQLException;
     
-    public void eliminarCompra(Compra compra);
+    public void eliminarCompra(Compra compra) throws SQLException;
     
-    public Compra actualizarCompra(Compra compra);
+    public Compra actualizarCompra(Compra compra) throws SQLException;
     
-    public Compra consultarCompra(Compra compra);
+    public Compra consultarCompra(Compra compra) throws SQLException;
     
 }
