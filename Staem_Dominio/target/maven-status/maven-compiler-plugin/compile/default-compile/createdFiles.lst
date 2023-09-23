@@ -1,0 +1,7 @@
+dominio\Videojuego.class
+dominio\Compra.class
+dominio\Domicilio.class
+dominio\Copia.class
+dominio\Comprador.class
+dominio\Credencial.class
+dominio\Carrito.class
