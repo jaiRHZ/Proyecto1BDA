@@ -1,10 +1,9 @@
-
 package interfacesDAO;
 
 /**
  *
  * @author HP
  */
-public class ICompraCopiasDAO {
-    
+public interface ICompraCopiasDAO {
+
 }
