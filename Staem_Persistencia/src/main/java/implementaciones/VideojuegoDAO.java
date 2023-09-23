@@ -47,7 +47,7 @@ public class VideojuegoDAO implements IVideojuegosDAO {
             }
         } catch (Exception ex) {
 
-            throw new SQLException("No se pudo insertar al cliente " + ex.getMessage());
+            throw new SQLException("No se pudo guardar el videojuego " + ex.getMessage());
         }
         return null;
     }
