@@ -9,6 +9,12 @@ import excepciones.SQLException;
  */
 public interface IVideojuegosDAO {
 
-    public Videojuego guardarVideojuego(Videojuego viodeojuego) throws SQLException;
+    public Videojuego agregarVideojuego(Videojuego videojuego) throws SQLException;
+    
+    public void eliminarVideojuego(Videojuego videojuego);
+    
+    public Videojuego actualizarVideojuego(Videojuego videojuego);
+    
+    public Videojuego consultarVideojuego(Videojuego videojuego);
 
 }

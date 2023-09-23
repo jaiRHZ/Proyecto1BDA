@@ -4,10 +4,19 @@
  */
 package interfacesDAO;
 
+import dominio.Comprador;
+
 /**
  *
  * @author HP
  */
-public class ICompradoresDAO {
+public interface ICompradoresDAO {
     
+    public Comprador agregarComprador(Comprador comprador);
+    
+    public void eliminarComprador(Comprador comprador);
+    
+    public Comprador actualizarComprador(Comprador comprador);
+    
+    public Comprador consultarComprador(Comprador comprador);
 }

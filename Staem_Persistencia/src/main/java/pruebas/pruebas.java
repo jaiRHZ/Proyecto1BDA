@@ -27,7 +27,7 @@ public class pruebas {
         IConexionBD conexion = new ConexionMySQL();
         IVideojuegosDAO vidojuegosDAO = new VideojuegoDAO(conexion);
         Videojuego videjuego = new Videojuego("Mario", "Aventura", "Nintendo", "Afd");
-        vidojuegosDAO.guardarVideojuego(videjuego);
+        vidojuegosDAO.agregarVideojuego(videjuego);
     }
 
 }

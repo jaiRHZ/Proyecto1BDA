@@ -14,7 +14,7 @@ public class ConexionMySQL implements IConexionBD {
 
     private Connection connectionBD;
 
-    private String contrasenya = "daniel2002";
+    private String contrasenya = "PVnRT_1809";
     private String usuario = "root";
 
     private String HOST = "localhost";

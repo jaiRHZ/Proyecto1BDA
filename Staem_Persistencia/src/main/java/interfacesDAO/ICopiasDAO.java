@@ -4,10 +4,20 @@
  */
 package interfacesDAO;
 
+import dominio.Copia;
+
 /**
  *
  * @author HP
  */
-public class ICopiasDAO {
+public interface ICopiasDAO {
+    
+    public Copia agregarCopia(Copia copia);
+    
+    public void eliminarCopia(Copia copia);
+    
+    public Copia actualizarCopia(Copia copia);
+    
+    public Copia consultarCopia(Copia copia);
     
 }
