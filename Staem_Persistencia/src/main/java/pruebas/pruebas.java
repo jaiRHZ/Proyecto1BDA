@@ -8,9 +8,10 @@ package pruebas;
 import conexionBD.ConexionMySQL;
 import conexionBD.IConexionBD;
 import implementaciones.VideojuegoDAO;
-import interfacesDAO.IVideojuegosDAO;
-import dominio.Videojuego;
+import interfacesDAO.*;
+import dominio.*;
 import excepciones.SQLException;
+import implementaciones.CompradoresDAO;
 
 /**
  *
@@ -26,8 +27,12 @@ public class pruebas {
 
         IConexionBD conexion = new ConexionMySQL();
         IVideojuegosDAO vidojuegosDAO = new VideojuegoDAO(conexion);
-        Videojuego videjuego = new Videojuego("Mario", "Aventura", "Nintendo", "Afd");
-        vidojuegosDAO.agregarVideojuego(videjuego);
+        ICompradoresDAO compradoresDAO = new CompradoresDAO(conexion);
+
+        Comprador comprador = new Comprador("daoma222@gmail.com", "Daniel", "Alameda", "López", new Domicilio("tepic", "123", "123"), new Credencial("Daoma", "123"));
+        compradoresDAO.agregarComprador(comprador);
+//        Videojuego videjuego = new Videojuego("Mario", "Aventura", "Nintendo", "Afd");
+//        vidojuegosDAO.agregarVideojuego(videjuego);
     }
 
 }
