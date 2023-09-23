@@ -11,7 +11,6 @@ aMaterno VARCHAR(20),
 calle VARCHAR(20) NOT NULL,
 numero INT NOT NULL,
 codigoPostal INT NOT NULL,
-idCredencial INT NOT NULL,
 contrasena VARCHAR(25) NOT NULL
 );
 
