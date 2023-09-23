@@ -4,6 +4,7 @@
  */
 package implementaciones;
 
+import conexionBD.IConexionBD;
 import dominio.Carrito;
 import interfacesDAO.ICarritoDAO;
 
@@ -12,6 +13,12 @@ import interfacesDAO.ICarritoDAO;
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
 public class CarritoDAO implements ICarritoDAO {
+
+    private final IConexionBD conexionBD;
+
+    public CarritoDAO(IConexionBD conexionBD) {
+        this.conexionBD = conexionBD;
+    }
 
     @Override
     public Carrito agregarCompra(Carrito carrito) {
@@ -32,5 +39,5 @@ public class CarritoDAO implements ICarritoDAO {
     public Carrito consultarCompra(Carrito carrito) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

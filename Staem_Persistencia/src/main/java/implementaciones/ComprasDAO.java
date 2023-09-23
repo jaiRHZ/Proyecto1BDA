@@ -4,6 +4,7 @@
  */
 package implementaciones;
 
+import conexionBD.IConexionBD;
 import dominio.Compra;
 import interfacesDAO.IComprasDAO;
 
@@ -11,7 +12,13 @@ import interfacesDAO.IComprasDAO;
  *
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
-public class ComprasDAO implements IComprasDAO{
+public class ComprasDAO implements IComprasDAO {
+
+    private final IConexionBD conexionBD;
+
+    public ComprasDAO(IConexionBD conexionBD) {
+        this.conexionBD = conexionBD;
+    }
 
     @Override
     public Compra agregarCompra(Compra compra) {
@@ -32,5 +39,5 @@ public class ComprasDAO implements IComprasDAO{
     public Compra consultarCompra(Compra compra) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

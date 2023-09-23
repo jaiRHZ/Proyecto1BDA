@@ -5,6 +5,7 @@
  */
 package pruebas;
 
+import IFabricaDAO.FabricaDAO;
 import conexionBD.ConexionMySQL;
 import conexionBD.IConexionBD;
 import implementaciones.VideojuegoDAO;
@@ -12,6 +13,7 @@ import interfacesDAO.*;
 import dominio.*;
 import excepciones.SQLException;
 import implementaciones.CompradoresDAO;
+import java.security.NoSuchAlgorithmException;
 
 /**
  *
@@ -22,15 +24,13 @@ public class pruebas {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, NoSuchAlgorithmException {
         // TODO code application logic here
 
-        IConexionBD conexion = new ConexionMySQL();
-        IVideojuegosDAO vidojuegosDAO = new VideojuegoDAO(conexion);
-        ICompradoresDAO compradoresDAO = new CompradoresDAO(conexion);
+        FabricaDAO fabrica = new FabricaDAO();
 
         Comprador comprador = new Comprador("daoma222@gmail.com", "Daniel", "Alameda", "López", new Domicilio("tepic", "123", "123"), new Credencial("Daoma", "123"));
-        compradoresDAO.agregarComprador(comprador);
+        fabrica.crearCompradoresDAO().agregarComprador(comprador);
 //        Videojuego videjuego = new Videojuego("Mario", "Aventura", "Nintendo", "Afd");
 //        vidojuegosDAO.agregarVideojuego(videjuego);
     }

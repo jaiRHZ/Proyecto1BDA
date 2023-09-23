@@ -1,4 +1,3 @@
-
 package dominio;
 
 /**
@@ -6,10 +5,9 @@ package dominio;
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
 public class Copia {
-    
+
     private int id;
     private float precio;
-    
     private Videojuego videojuego;
 
     public Copia() {
@@ -76,7 +74,5 @@ public class Copia {
         final Copia other = (Copia) obj;
         return this.id == other.id;
     }
-    
-    
-    
+
 }
