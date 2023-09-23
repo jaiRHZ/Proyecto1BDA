@@ -1,13 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package interfacesDAO;
+
+import dominio.Copia;
+import excepciones.SQLException;
 
 /**
  *
  * @author HP
  */
-public class ICopiasDAO {
+public interface ICopiasDAO {
+    
+    public Copia agregarCopia(Copia copia) throws SQLException;
+    
+    public void eliminarCopia(Copia copia) throws SQLException;
+    
+    public Copia actualizarCopia(Copia copia) throws SQLException;
+    
+    public Copia consultarCopia(Copia copia) throws SQLException;
     
 }
