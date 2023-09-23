@@ -1,10 +1,14 @@
-
 package interfacesDAO;
+
+import dominio.Videojuego;
+import excepciones.SQLException;
 
 /**
  *
  * @author HP
  */
-public class IVideojuegosDAO {
-    
+public interface IVideojuegosDAO {
+
+    public Videojuego guardarVideojuego(Videojuego viodeojuego) throws SQLException;
+
 }

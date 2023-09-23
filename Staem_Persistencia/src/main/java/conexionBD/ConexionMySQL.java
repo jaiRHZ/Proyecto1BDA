@@ -1,4 +1,3 @@
-
 package conexionBD;
 
 import excepciones.SQLException;
@@ -14,16 +13,16 @@ import java.util.logging.Logger;
 public class ConexionMySQL implements IConexionBD {
 
     private Connection connectionBD;
-    
-    private String contrasenya = "PVnRT_1809";
+
+    private String contrasenya = "daniel2002";
     private String usuario = "root";
-    
+
     private String HOST = "localhost";
     private String PORT = "3306";
     private String DATABASE = "tiendaVideojuegos";
     private String CLASSNAME = "com.mysql.cj.jdbc.Driver";
     private String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
-    
+
     @Override
     public Connection getConnection() throws SQLException {
         if (connectionBD == null) {
@@ -32,12 +31,10 @@ public class ConexionMySQL implements IConexionBD {
             } catch (java.sql.SQLException ex) {
                 Logger.getLogger(ConexionMySQL.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
-        
+
         return connectionBD;
     }
-    
-    
-    
+
 }
