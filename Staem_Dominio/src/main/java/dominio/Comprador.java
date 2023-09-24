@@ -1,4 +1,3 @@
-
 package dominio;
 
 import java.util.List;
@@ -8,17 +7,17 @@ import java.util.List;
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
 public class Comprador {
-    
+
     private int id;
     private String email;
     private String nombres;
     private String aPaterno;
     private String aMaterno;
-    
+
     private Domicilio domicilio;
     private Credencial credencial;
     private List<Compra> compras;
-    
+
     public Comprador() {
     }
 
@@ -59,7 +58,6 @@ public class Comprador {
     public void setCompras(List<Compra> compras) {
         this.compras = compras;
     }
-    
 
     public int getId() {
         return id;
@@ -68,7 +66,7 @@ public class Comprador {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public String getEmail() {
         return email;
     }
@@ -144,7 +142,4 @@ public class Comprador {
         return this.id == other.id;
     }
 
-    
-    
-    
 }

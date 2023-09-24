@@ -36,4 +36,14 @@ public class FachadaPersistencia implements IFachadaPersistencia {
         return null;
     }
 
+    @Override
+    public Comprador consultarComprador(Comprador comprador) {
+        try {
+            return fabricaDAO.crearCompradoresDAO().consultarComprador(comprador);
+        } catch (SQLException ex) {
+            Logger.getLogger(FachadaPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
 }

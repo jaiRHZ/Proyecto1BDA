@@ -24,4 +24,8 @@ public class CompradoresNegocio {
         return fachadaPersistencia.agregarComprador(comprador);
     }
 
+    public Comprador consultarComprador(Comprador comprador) {
+        return fachadaPersistencia.consultarComprador(comprador);
+    }
+
 }

@@ -2,6 +2,7 @@ package implementaciones;
 
 import conexionBD.IConexionBD;
 import dominio.Comprador;
+import dominio.Domicilio;
 import excepciones.SQLException;
 import interfacesDAO.ICompradoresDAO;
 import java.sql.Connection;
@@ -92,7 +93,30 @@ public class CompradoresDAO implements ICompradoresDAO {
 
     @Override
     public Comprador consultarComprador(Comprador comprador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "select * from compradores where usuario = ? and contrasena= ?";
+        try (Connection conexion = conexionBD.getConnection();
+                PreparedStatement comando = conexion.prepareStatement(sql)) {
+            comando.setString(1, comprador.getCredencial().getUsuario());
+            comando.setString(2, comprador.getCredencial().getContrasenya());
+            ResultSet resultado = comando.executeQuery();
+            if (resultado.next()) {
+                comprador.setId(resultado.getInt("id"));
+                comprador.setEmail(resultado.getString("email"));
+                comprador.setNombres(resultado.getString("nombres"));
+                comprador.setaPaterno(resultado.getString("aPaterno"));
+                comprador.setaMaterno(resultado.getString("aMaterno"));
+                comprador.setDomicilio(new Domicilio(resultado.getString("calle"),
+                        resultado.getString("numero"),
+                        resultado.getString("codigoPostal")));
+                JOptionPane.showMessageDialog(null, "Valido");
+                return comprador;
+            }
+            JOptionPane.showMessageDialog(null, "No se encontro Usuario", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return null;
     }
 
 }

@@ -15,4 +15,6 @@ public interface IFachadaPersistencia {
 
     //Compradores
     public Comprador agregarComprador(Comprador comprador);
+
+    public Comprador consultarComprador(Comprador comprador);
 }

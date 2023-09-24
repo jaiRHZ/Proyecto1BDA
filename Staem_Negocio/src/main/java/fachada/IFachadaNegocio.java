@@ -14,4 +14,6 @@ import dominio.Comprador;
 public interface IFachadaNegocio {
 
     public Comprador agregarComprador(Comprador comprador);
+
+    public Comprador consultarComprador(Comprador comprador);
 }

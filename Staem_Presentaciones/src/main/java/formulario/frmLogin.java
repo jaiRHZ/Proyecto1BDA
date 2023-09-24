@@ -4,7 +4,14 @@
  */
 package formulario;
 
+import dominio.Comprador;
+import dominio.Credencial;
+import fachada.FachadaNegocio;
+import fachada.IFachadaNegocio;
 import java.awt.Color;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -12,11 +19,14 @@ import java.awt.Color;
  */
 public class frmLogin extends javax.swing.JFrame {
 
+    private final IFachadaNegocio fachadaNegocio;
+
     /**
      * Creates new form frmLogin
      */
     public frmLogin() {
         initComponents();
+        this.fachadaNegocio = new FachadaNegocio();
     }
 
     /**
@@ -175,9 +185,23 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioActionPerformed
 
     private void iniciar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciar_sesionActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            fachadaNegocio.consultarComprador(this.extaerDatos());
+
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, e);
+        }
+
     }//GEN-LAST:event_iniciar_sesionActionPerformed
 
+    public Comprador extaerDatos() throws NoSuchAlgorithmException {
+        Comprador comprador = new Comprador();
+        comprador.setCredencial(new Credencial(this.usuario.getText(), this.contrasenya.getText()));
+        return comprador;
+    }
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
         // TODO add your handling code here:
         frmRegistarUsuario pantallaRegistroUsuario = new frmRegistarUsuario();

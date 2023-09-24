@@ -49,8 +49,8 @@ public class Credencial {
         return contrasenya;
     }
 
-    public void setContrasenya(String contrasenya) {
-        this.contrasenya = contrasenya;
+    public void setContrasenya(String contrasenya) throws NoSuchAlgorithmException {
+        this.contrasenya = encriptarContrasena(contrasenya);
     }
 
     @Override

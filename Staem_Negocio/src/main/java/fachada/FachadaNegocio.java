@@ -26,4 +26,9 @@ public class FachadaNegocio implements IFachadaNegocio {
         return fabricaNegocio.crearCompradoresNegocio().agregarComprador(comprador);
     }
 
+    @Override
+    public Comprador consultarComprador(Comprador comprador) {
+        return fabricaNegocio.crearCompradoresNegocio().consultarComprador(comprador);
+    }
+
 }

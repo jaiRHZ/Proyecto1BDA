@@ -10,7 +10,8 @@ import java.awt.Color;
 import dominio.Comprador;
 import dominio.Credencial;
 import dominio.Domicilio;
-import sun.util.logging.resources.logging;
+import java.security.NoSuchAlgorithmException;
+
 
 /**
  *
@@ -355,12 +356,12 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
             fachadaNegocio.agregarComprador(this.extraerDatos());
             this.dispose();
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
     }//GEN-LAST:event_registrarActionPerformed
 
-    public Comprador extraerDatos() {
+    public Comprador extraerDatos() throws NoSuchAlgorithmException {
         Comprador comprador = new Comprador();
         Credencial credencial = new Credencial();
         Domicilio domicilio = new Domicilio();
