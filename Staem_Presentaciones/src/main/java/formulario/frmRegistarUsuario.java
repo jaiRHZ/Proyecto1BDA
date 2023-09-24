@@ -4,7 +4,13 @@
  */
 package formulario;
 
+import fachada.FachadaNegocio;
+import fachada.IFachadaNegocio;
 import java.awt.Color;
+import dominio.Comprador;
+import dominio.Credencial;
+import dominio.Domicilio;
+import sun.util.logging.resources.logging;
 
 /**
  *
@@ -12,11 +18,14 @@ import java.awt.Color;
  */
 public class frmRegistarUsuario extends javax.swing.JFrame {
 
+    private final IFachadaNegocio fachadaNegocio;
+
     /**
      * Creates new form frmRegistarUsuario
      */
     public frmRegistarUsuario() {
         initComponents();
+        this.fachadaNegocio = new FachadaNegocio();
     }
 
     /**
@@ -36,12 +45,14 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
         email = new javax.swing.JTextField();
         Volver = new javax.swing.JButton();
         contrasenya = new javax.swing.JTextField();
-        domicilio = new javax.swing.JTextField();
+        calle = new javax.swing.JTextField();
         aMaterno = new javax.swing.JTextField();
         aPaterno = new javax.swing.JTextField();
         nombres = new javax.swing.JTextField();
+        numero = new javax.swing.JTextField();
+        codigoPostal = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         Fondo.setBackground(new java.awt.Color(115, 46, 168));
@@ -68,7 +79,7 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
         usuario.setForeground(new java.awt.Color(153, 153, 153));
         usuario.setText("Usuario");
         usuario.setToolTipText("");
-        usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         usuario.setName(""); // NOI18N
         usuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -88,7 +99,7 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
         email.setForeground(new java.awt.Color(153, 153, 153));
         email.setText("Correo electronico");
         email.setToolTipText("");
-        email.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        email.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         email.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 emailFocusGained(evt);
@@ -115,7 +126,7 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
         contrasenya.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         contrasenya.setForeground(new java.awt.Color(153, 153, 153));
         contrasenya.setText("Contraseña");
-        contrasenya.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        contrasenya.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         contrasenya.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 contrasenyaFocusGained(evt);
@@ -130,23 +141,23 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
             }
         });
 
-        domicilio.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        domicilio.setForeground(new java.awt.Color(153, 153, 153));
-        domicilio.setText("Domicilio");
-        domicilio.setToolTipText("");
-        domicilio.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        domicilio.setName(""); // NOI18N
-        domicilio.addFocusListener(new java.awt.event.FocusAdapter() {
+        calle.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        calle.setForeground(new java.awt.Color(153, 153, 153));
+        calle.setText("Calle");
+        calle.setToolTipText("");
+        calle.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        calle.setName(""); // NOI18N
+        calle.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                domicilioFocusGained(evt);
+                calleFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                domicilioFocusLost(evt);
+                calleFocusLost(evt);
             }
         });
-        domicilio.addActionListener(new java.awt.event.ActionListener() {
+        calle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                domicilioActionPerformed(evt);
+                calleActionPerformed(evt);
             }
         });
 
@@ -154,7 +165,7 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
         aMaterno.setForeground(new java.awt.Color(153, 153, 153));
         aMaterno.setText("Apellido materno");
         aMaterno.setToolTipText("");
-        aMaterno.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        aMaterno.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         aMaterno.setName(""); // NOI18N
         aMaterno.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -174,7 +185,7 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
         aPaterno.setForeground(new java.awt.Color(153, 153, 153));
         aPaterno.setText("Apellido paterno");
         aPaterno.setToolTipText("");
-        aPaterno.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        aPaterno.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         aPaterno.setName(""); // NOI18N
         aPaterno.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -194,7 +205,7 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
         nombres.setForeground(new java.awt.Color(153, 153, 153));
         nombres.setText("Nombres");
         nombres.setToolTipText("");
-        nombres.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        nombres.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nombres.setName(""); // NOI18N
         nombres.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -210,49 +221,92 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
             }
         });
 
+        numero.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        numero.setForeground(new java.awt.Color(153, 153, 153));
+        numero.setText("Numero");
+        numero.setToolTipText("");
+        numero.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        numero.setName(""); // NOI18N
+        numero.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                numeroFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                numeroFocusLost(evt);
+            }
+        });
+        numero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numeroActionPerformed(evt);
+            }
+        });
+
+        codigoPostal.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        codigoPostal.setForeground(new java.awt.Color(153, 153, 153));
+        codigoPostal.setText("Codigo Postal");
+        codigoPostal.setToolTipText("");
+        codigoPostal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        codigoPostal.setName(""); // NOI18N
+        codigoPostal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                codigoPostalFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                codigoPostalFocusLost(evt);
+            }
+        });
+        codigoPostal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoPostalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
         Fondo.setLayout(FondoLayout);
         FondoLayout.setHorizontalGroup(
             FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Registro)
+                    .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(215, 215, 215))
             .addGroup(FondoLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoLayout.createSequentialGroup()
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(aMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(FondoLayout.createSequentialGroup()
-                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(contrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(aPaterno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nombres, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(72, 72, 72))
-            .addGroup(FondoLayout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addComponent(domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                            .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(Registro)
-                                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(215, 215, 215))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                            .addComponent(registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(193, 193, 193)))))
+                        .addComponent(calle, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(FondoLayout.createSequentialGroup()
+                                .addComponent(Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FondoLayout.createSequentialGroup()
+                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(aMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FondoLayout.createSequentialGroup()
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(contrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(aPaterno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombres, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(57, 57, 57))))
         );
         FondoLayout.setVerticalGroup(
             FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoLayout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Registro)
                 .addGap(41, 41, 41)
@@ -267,13 +321,17 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(aMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(calle, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -288,25 +346,52 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         // TODO add your handling code here:
+        try {
+            fachadaNegocio.agregarComprador(this.extraerDatos());
+            this.dispose();
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_registrarActionPerformed
 
+    public Comprador extraerDatos() {
+        Comprador comprador = new Comprador();
+        Credencial credencial = new Credencial();
+        Domicilio domicilio = new Domicilio();
+
+        comprador.setEmail(this.email.getText());
+        comprador.setNombres(this.nombres.getText());
+        comprador.setaPaterno(this.aPaterno.getText());
+        comprador.setaMaterno(this.aMaterno.getText());
+        domicilio.setCalle(this.calle.getText());
+        domicilio.setNumero(this.numero.getText());
+        domicilio.setCodigoPostal(this.codigoPostal.getText());
+        credencial.setUsuario(this.usuario.getText());
+        credencial.setContrasenya(this.contrasenya.getText());
+        comprador.setDomicilio(domicilio);
+        comprador.setCredencial(credencial);
+
+        return comprador;
+    }
+
+
     private void usuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usuarioFocusGained
-        if(usuario.getText().equals("Usuario"))
-        {
+        if (usuario.getText().equals("Usuario")) {
             usuario.setText("");
-            usuario.setForeground(new Color(0,0,0));
+            usuario.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_usuarioFocusGained
 
     private void usuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usuarioFocusLost
-        if(usuario.getText().equals(""))
-        {
+        if (usuario.getText().equals("")) {
             usuario.setText("Usuario");
-            usuario.setForeground(new Color(153,153,153));
+            usuario.setForeground(new Color(153, 153, 153));
         }
     }//GEN-LAST:event_usuarioFocusLost
 
@@ -315,18 +400,16 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioActionPerformed
 
     private void emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusGained
-        if(email.getText().equals("Correo electronico"))
-        {
+        if (email.getText().equals("Correo electronico")) {
             email.setText("");
-            email.setForeground(new Color(0,0,0));
+            email.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_emailFocusGained
 
     private void emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusLost
-        if(email.getText().equals(""))
-        {
+        if (email.getText().equals("")) {
             email.setText("Correo electronico");
-            email.setForeground(new Color(153,153,153));
+            email.setForeground(new Color(153, 153, 153));
 
         }
     }//GEN-LAST:event_emailFocusLost
@@ -336,22 +419,20 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_emailActionPerformed
 
     private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
-       
+        this.dispose();
     }//GEN-LAST:event_VolverActionPerformed
 
     private void contrasenyaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenyaFocusGained
-        if(contrasenya.getText().equals("Contraseña"))
-        {
+        if (contrasenya.getText().equals("Contraseña")) {
             contrasenya.setText("");
-            contrasenya.setForeground(new Color(0,0,0));
+            contrasenya.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_contrasenyaFocusGained
 
     private void contrasenyaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenyaFocusLost
-       if(contrasenya.getText().equals(""))
-        {
+        if (contrasenya.getText().equals("")) {
             contrasenya.setText("Contraseña");
-            contrasenya.setForeground(new Color(153,153,153));
+            contrasenya.setForeground(new Color(153, 153, 153));
 
         }
     }//GEN-LAST:event_contrasenyaFocusLost
@@ -360,40 +441,36 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_contrasenyaActionPerformed
 
-    private void domicilioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_domicilioFocusGained
-        if(domicilio.getText().equals("Domicilio"))
-        {
-            domicilio.setText("");
-            domicilio.setForeground(new Color(0,0,0));
+    private void calleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_calleFocusGained
+        if (calle.getText().equals("Calle")) {
+            calle.setText("");
+            calle.setForeground(new Color(0, 0, 0));
         }
-    }//GEN-LAST:event_domicilioFocusGained
+    }//GEN-LAST:event_calleFocusGained
 
-    private void domicilioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_domicilioFocusLost
-        if(domicilio.getText().equals(""))
-        {
-            domicilio.setText("Domicilio");
-            domicilio.setForeground(new Color(153,153,153));
+    private void calleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_calleFocusLost
+        if (calle.getText().equals("")) {
+            calle.setText("Calle");
+            calle.setForeground(new Color(153, 153, 153));
 
         }
-    }//GEN-LAST:event_domicilioFocusLost
+    }//GEN-LAST:event_calleFocusLost
 
-    private void domicilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_domicilioActionPerformed
+    private void calleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_domicilioActionPerformed
+    }//GEN-LAST:event_calleActionPerformed
 
     private void aMaternoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aMaternoFocusGained
-        if(aMaterno.getText().equals("Apellido materno"))
-        {
+        if (aMaterno.getText().equals("Apellido materno")) {
             aMaterno.setText("");
-            aMaterno.setForeground(new Color(0,0,0));
+            aMaterno.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_aMaternoFocusGained
 
     private void aMaternoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aMaternoFocusLost
-        if(aMaterno.getText().equals(""))
-        {
+        if (aMaterno.getText().equals("")) {
             aMaterno.setText("Apellido materno");
-            aMaterno.setForeground(new Color(153,153,153));
+            aMaterno.setForeground(new Color(153, 153, 153));
 
         }
     }//GEN-LAST:event_aMaternoFocusLost
@@ -403,18 +480,16 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_aMaternoActionPerformed
 
     private void aPaternoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aPaternoFocusGained
-       if(aPaterno.getText().equals("Apellido paterno"))
-        {
+        if (aPaterno.getText().equals("Apellido paterno")) {
             aPaterno.setText("");
-            aPaterno.setForeground(new Color(0,0,0));
+            aPaterno.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_aPaternoFocusGained
 
     private void aPaternoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aPaternoFocusLost
-        if(aPaterno.getText().equals(""))
-        {
+        if (aPaterno.getText().equals("")) {
             aPaterno.setText("Apellido paterno");
-            aPaterno.setForeground(new Color(153,153,153));
+            aPaterno.setForeground(new Color(153, 153, 153));
 
         }
     }//GEN-LAST:event_aPaternoFocusLost
@@ -424,18 +499,16 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_aPaternoActionPerformed
 
     private void nombresFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nombresFocusGained
-        if(nombres.getText().equals("Nombres"))
-        {
+        if (nombres.getText().equals("Nombres")) {
             nombres.setText("");
-            nombres.setForeground(new Color(0,0,0));
+            nombres.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_nombresFocusGained
 
     private void nombresFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nombresFocusLost
-         if(nombres.getText().equals(""))
-        {
+        if (nombres.getText().equals("")) {
             nombres.setText("Nombres");
-            nombres.setForeground(new Color(153,153,153));
+            nombres.setForeground(new Color(153, 153, 153));
 
         }
     }//GEN-LAST:event_nombresFocusLost
@@ -443,6 +516,46 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
     private void nombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombresActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombresActionPerformed
+
+    private void numeroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numeroFocusGained
+        // TODO add your handling code here:
+        if (numero.getText().equals("Numero")) {
+            numero.setText("");
+            numero.setForeground(new Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_numeroFocusGained
+
+    private void numeroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numeroFocusLost
+        // TODO add your handling code here:
+        if (numero.getText().equals("")) {
+            numero.setText("Numero");
+            numero.setForeground(new Color(153, 153, 153));
+        }
+    }//GEN-LAST:event_numeroFocusLost
+
+    private void numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numeroActionPerformed
+
+    private void codigoPostalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codigoPostalFocusGained
+        // TODO add your handling code here:
+        if (codigoPostal.getText().equals("Codigo Postal")) {
+            codigoPostal.setText("");
+            codigoPostal.setForeground(new Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_codigoPostalFocusGained
+
+    private void codigoPostalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codigoPostalFocusLost
+        // TODO add your handling code here:
+        if (codigoPostal.getText().equals("")) {
+            codigoPostal.setText("Codigo Postal");
+            codigoPostal.setForeground(new Color(153, 153, 153));
+        }
+    }//GEN-LAST:event_codigoPostalFocusLost
+
+    private void codigoPostalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoPostalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codigoPostalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -485,10 +598,12 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton Volver;
     private javax.swing.JTextField aMaterno;
     private javax.swing.JTextField aPaterno;
+    private javax.swing.JTextField calle;
+    private javax.swing.JTextField codigoPostal;
     private javax.swing.JTextField contrasenya;
-    private javax.swing.JTextField domicilio;
     private javax.swing.JTextField email;
     private javax.swing.JTextField nombres;
+    private javax.swing.JTextField numero;
     private javax.swing.JButton registrar;
     private javax.swing.JLabel titulo;
     private javax.swing.JTextField usuario;

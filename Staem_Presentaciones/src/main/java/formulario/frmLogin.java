@@ -33,9 +33,9 @@ public class frmLogin extends javax.swing.JFrame {
         iniciar_sesion = new javax.swing.JButton();
         registrarse = new javax.swing.JButton();
         usuario = new javax.swing.JTextField();
-        contrasenya = new javax.swing.JTextField();
         Registro = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        contrasenya = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -69,7 +69,7 @@ public class frmLogin extends javax.swing.JFrame {
         usuario.setForeground(new java.awt.Color(153, 153, 153));
         usuario.setText("Usuario");
         usuario.setToolTipText("");
-        usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         usuario.setName(""); // NOI18N
         usuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -85,10 +85,15 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        contrasenya.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        contrasenya.setForeground(new java.awt.Color(153, 153, 153));
+        Registro.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        Registro.setForeground(new java.awt.Color(255, 255, 255));
+        Registro.setText("¿No tienes una cuenta?");
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Inicio de sesión");
+
         contrasenya.setText("Contraseña");
-        contrasenya.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         contrasenya.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 contrasenyaFocusGained(evt);
@@ -97,19 +102,6 @@ public class frmLogin extends javax.swing.JFrame {
                 contrasenyaFocusLost(evt);
             }
         });
-        contrasenya.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contrasenyaActionPerformed(evt);
-            }
-        });
-
-        Registro.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        Registro.setForeground(new java.awt.Color(255, 255, 255));
-        Registro.setText("¿No tienes una cuenta?");
-
-        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Inicio de sesión");
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
@@ -119,13 +111,10 @@ public class frmLogin extends javax.swing.JFrame {
                 .addGap(248, 248, 248)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addComponent(registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(fondoLayout.createSequentialGroup()
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(Registro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                             .addComponent(usuario, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(contrasenya, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(contrasenya))
                         .addGap(18, 18, 18)
                         .addComponent(iniciar_sesion)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -136,7 +125,10 @@ public class frmLogin extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel1))
                             .addComponent(titulo))
-                        .addGap(300, 300, 300))))
+                        .addGap(300, 300, 300))
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addComponent(registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,12 +141,12 @@ public class frmLogin extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(37, 37, 37)
                         .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addComponent(contrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addComponent(iniciar_sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(Registro)
                 .addGap(18, 18, 18)
                 .addComponent(registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,7 +159,7 @@ public class frmLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,6 +167,7 @@ public class frmLogin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
@@ -187,42 +180,38 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
         // TODO add your handling code here:
+        frmRegistarUsuario pantallaRegistroUsuario = new frmRegistarUsuario();
+        pantallaRegistroUsuario.setVisible(true);
     }//GEN-LAST:event_registrarseActionPerformed
 
-    private void contrasenyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenyaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contrasenyaActionPerformed
-
     private void usuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usuarioFocusGained
-        if(usuario.getText().equals("Usuario"))
-        {
+        if (usuario.getText().equals("Usuario")) {
             usuario.setText("");
-            usuario.setForeground(new Color(0,0,0));
+            usuario.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_usuarioFocusGained
 
     private void usuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usuarioFocusLost
-         if(usuario.getText().equals(""))
-        {
+        if (usuario.getText().equals("")) {
             usuario.setText("Usuario");
-            usuario.setForeground(new Color(153,153,153));
+            usuario.setForeground(new Color(153, 153, 153));
         }
     }//GEN-LAST:event_usuarioFocusLost
 
     private void contrasenyaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenyaFocusGained
-        if(contrasenya.getText().equals("Contraseña"))
-        {
-           contrasenya.setText("");
-            contrasenya.setForeground(new Color(0,0,0)); 
+        // TODO add your handling code here:
+        if (contrasenya.getText().equals("Contraseña")) {
+            contrasenya.setText("");
+            contrasenya.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_contrasenyaFocusGained
 
     private void contrasenyaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenyaFocusLost
-        if(contrasenya.getText().equals(""))
-        {
+        // TODO add your handling code here:
+        if (contrasenya.getText().equals("")) {
             contrasenya.setText("Contraseña");
-            contrasenya.setForeground(new Color(153,153,153));
-            
+            contrasenya.setForeground(new Color(153, 153, 153));
+
         }
     }//GEN-LAST:event_contrasenyaFocusLost
 
@@ -263,7 +252,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Registro;
-    private javax.swing.JTextField contrasenya;
+    private javax.swing.JPasswordField contrasenya;
     private javax.swing.JPanel fondo;
     private javax.swing.JButton iniciar_sesion;
     private javax.swing.JLabel jLabel1;

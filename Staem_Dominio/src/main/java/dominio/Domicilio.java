@@ -1,4 +1,3 @@
-
 package dominio;
 
 /**
@@ -6,11 +5,10 @@ package dominio;
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
 public class Domicilio {
-    
+
     private String calle;
     private String numero;
     private String codigoPostal;
-    
 
     public Domicilio() {
     }
@@ -21,7 +19,6 @@ public class Domicilio {
         this.codigoPostal = codigoPostal;
     }
 
-    
     public String getCalle() {
         return calle;
     }
@@ -46,13 +43,9 @@ public class Domicilio {
         this.codigoPostal = codigoPostal;
     }
 
-    
-    
-    
     @Override
     public String toString() {
         return "Domicilio{" + "calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal + '}';
     }
-    
-    
+
 }
