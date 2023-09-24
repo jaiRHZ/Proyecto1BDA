@@ -44,8 +44,9 @@ public class frmLogin extends javax.swing.JFrame {
         registrarse = new javax.swing.JButton();
         usuario = new javax.swing.JTextField();
         Registro = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        inicio = new javax.swing.JLabel();
         contrasenya = new javax.swing.JPasswordField();
+        logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -99,9 +100,9 @@ public class frmLogin extends javax.swing.JFrame {
         Registro.setForeground(new java.awt.Color(255, 255, 255));
         Registro.setText("¿No tienes una cuenta?");
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Inicio de sesión");
+        inicio.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        inicio.setForeground(new java.awt.Color(255, 255, 255));
+        inicio.setText("Inicio de sesión");
 
         contrasenya.setText("Contraseña");
         contrasenya.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -113,12 +114,16 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Staem.png"))); // NOI18N
+
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(248, 248, 248)
+                .addContainerGap()
+                .addComponent(logo)
+                .addGap(205, 205, 205)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -129,11 +134,11 @@ public class frmLogin extends javax.swing.JFrame {
                         .addComponent(iniciar_sesion)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
-                        .addGap(0, 52, Short.MAX_VALUE)
+                        .addGap(0, 22, Short.MAX_VALUE)
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(fondoLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jLabel1))
+                                .addComponent(inicio))
                             .addComponent(titulo))
                         .addGap(300, 300, 300))
                     .addGroup(fondoLayout.createSequentialGroup()
@@ -143,15 +148,18 @@ public class frmLogin extends javax.swing.JFrame {
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(titulo)
+                .addGap(9, 9, 9)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(titulo)
+                    .addComponent(logo))
+                .addGap(11, 11, 11)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
+                        .addComponent(inicio)
                         .addGap(37, 37, 37)
                         .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addComponent(contrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGap(103, 103, 103)
@@ -279,7 +287,8 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField contrasenya;
     private javax.swing.JPanel fondo;
     private javax.swing.JButton iniciar_sesion;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel inicio;
+    private javax.swing.JLabel logo;
     private javax.swing.JButton registrarse;
     private javax.swing.JLabel titulo;
     private javax.swing.JTextField usuario;
