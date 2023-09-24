@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,17 +40,20 @@ public class CompradoresDAO implements ICompradoresDAO {
             comando.setString(8, comprador.getDomicilio().getCodigoPostal());
             comando.setString(9, comprador.getCredencial().getContrasenya());
             comando.executeUpdate();
-            ResultSet rs = comando.getGeneratedKeys();
-
-            while (rs.next()) {
-                int claveGenerada = rs.getInt(1);
-                comprador.setId(claveGenerada);
-                JOptionPane.showMessageDialog(null, "Usuario Guardado con EXITO");
-                return comprador;
+            try (ResultSet rs = comando.getGeneratedKeys();) {
+                while (rs.next()) {
+                    int claveGenerada = rs.getInt(1);
+                    comprador.setId(claveGenerada);
+                    JOptionPane.showMessageDialog(null, "Usuario Guardado con EXITO");
+                    return comprador;
+                }
             }
-        } catch (Exception ex) {
+
+        } catch (SQLException ex) {
 
             throw new SQLException("No se pudo guardar el usuario " + ex.getMessage());
+        } catch (java.sql.SQLException ex) {
+            Logger.getLogger(CompradoresDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

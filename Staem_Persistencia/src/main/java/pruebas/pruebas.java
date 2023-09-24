@@ -14,6 +14,7 @@ import dominio.*;
 import excepciones.SQLException;
 import implementaciones.CompradoresDAO;
 import java.security.NoSuchAlgorithmException;
+import fachada.FachadaPersistencia;
 
 /**
  *
@@ -26,11 +27,12 @@ public class pruebas {
      */
     public static void main(String[] args) throws SQLException, NoSuchAlgorithmException {
         // TODO code application logic here
-
-        FabricaDAO fabrica = new FabricaDAO();
-
-        Comprador comprador = new Comprador("daoma222@gmail.com", "Daniel", "Alameda", "López", new Domicilio("tepic", "123", "123"), new Credencial("Daoma", "123"));
-        fabrica.crearCompradoresDAO().agregarComprador(comprador);
+        FachadaPersistencia fachada = new FachadaPersistencia();
+        Comprador comprador = new Comprador("daoma222@gmail.com", "Daniel", "Alameda", "López", new Domicilio("tepic", "123", "123"), new Credencial("Daoma", "1233"));
+        fachada.agregarComprador(comprador);
+        Comprador comprador2 = new Comprador("daoma222@gmail.com", "Daniel", "Alameda", "López", new Domicilio("tepic", "123", "123"), new Credencial("Daomaa", "1233"));
+        fachada.agregarComprador(comprador2);
+        System.out.println(comprador2.getId());
 //        Videojuego videjuego = new Videojuego("Mario", "Aventura", "Nintendo", "Afd");
 //        vidojuegosDAO.agregarVideojuego(videjuego);
     }

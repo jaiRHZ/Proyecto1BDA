@@ -28,6 +28,7 @@ public class FabricaDAO implements IFabricaDAO {
 
     public FabricaDAO() {
         this.conexionBD = new ConexionMySQL();
+
     }
 
     @Override
