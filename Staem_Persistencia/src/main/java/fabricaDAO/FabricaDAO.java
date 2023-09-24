@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package IFabricaDAO;
+package fabricaDAO;
 
 import conexionBD.ConexionMySQL;
 import conexionBD.IConexionBD;

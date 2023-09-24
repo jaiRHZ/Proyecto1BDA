@@ -5,7 +5,7 @@
  */
 package pruebas;
 
-import IFabricaDAO.FabricaDAO;
+import fabricaDAO.FabricaDAO;
 import conexionBD.ConexionMySQL;
 import conexionBD.IConexionBD;
 import implementaciones.VideojuegoDAO;

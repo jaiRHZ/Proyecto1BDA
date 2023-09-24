@@ -5,8 +5,8 @@
  */
 package fachada;
 
-import IFabricaDAO.FabricaDAO;
-import IFabricaDAO.IFabricaDAO;
+import fabricaDAO.FabricaDAO;
+import fabricaDAO.IFabricaDAO;
 import dominio.Comprador;
 import excepciones.SQLException;
 import interfacesDAO.ICompradoresDAO;
