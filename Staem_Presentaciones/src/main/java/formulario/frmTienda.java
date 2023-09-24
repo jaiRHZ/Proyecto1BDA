@@ -26,21 +26,234 @@ public class frmTienda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton5 = new javax.swing.JButton();
+        Fondo = new javax.swing.JPanel();
+        titulo = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
+        carrito = new javax.swing.JButton();
+        divisor = new javax.swing.JPanel();
+        juego1 = new javax.swing.JLabel();
+        juego2 = new javax.swing.JLabel();
+        juego3 = new javax.swing.JLabel();
+        juego4 = new javax.swing.JLabel();
+        juego5 = new javax.swing.JLabel();
+        juego6 = new javax.swing.JLabel();
+        juego7 = new javax.swing.JLabel();
+        juego8 = new javax.swing.JLabel();
+        juegoBtn1 = new javax.swing.JButton();
+        juegoBtn2 = new javax.swing.JButton();
+        juegoBtn3 = new javax.swing.JButton();
+        juegoBtn4 = new javax.swing.JButton();
+        juegoBtn5 = new javax.swing.JButton();
+        juegoBtn6 = new javax.swing.JButton();
+        juegoBtn7 = new javax.swing.JButton();
+        juegoBtn8 = new javax.swing.JButton();
+
+        jButton5.setBackground(new java.awt.Color(236, 211, 120));
+        jButton5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jButton5.setText("añadir al carrito");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        Fondo.setBackground(new java.awt.Color(115, 46, 168));
+
+        titulo.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
+        titulo.setForeground(new java.awt.Color(255, 255, 255));
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titulo.setText("Staem");
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Staem.png"))); // NOI18N
+
+        carrito.setBackground(new java.awt.Color(115, 46, 168));
+        carrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carrito.png"))); // NOI18N
+        carrito.setBorderPainted(false);
+
+        divisor.setBackground(new java.awt.Color(90, 32, 135));
+
+        javax.swing.GroupLayout divisorLayout = new javax.swing.GroupLayout(divisor);
+        divisor.setLayout(divisorLayout);
+        divisorLayout.setHorizontalGroup(
+            divisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        divisorLayout.setVerticalGroup(
+            divisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 8, Short.MAX_VALUE)
+        );
+
+        juego1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/juego 1.png"))); // NOI18N
+
+        juego2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/juego 2.png"))); // NOI18N
+
+        juego3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/juego 3.png"))); // NOI18N
+
+        juego4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/juego 4.png"))); // NOI18N
+
+        juego5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/juego 5.png"))); // NOI18N
+
+        juego6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/juego 6.png"))); // NOI18N
+
+        juego7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/juego 7.png"))); // NOI18N
+
+        juego8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/juego 8.png"))); // NOI18N
+
+        juegoBtn1.setBackground(new java.awt.Color(236, 211, 120));
+        juegoBtn1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        juegoBtn1.setText("añadir al carrito");
+        juegoBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                juegoBtn1ActionPerformed(evt);
+            }
+        });
+
+        juegoBtn2.setBackground(new java.awt.Color(236, 211, 120));
+        juegoBtn2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        juegoBtn2.setText("añadir al carrito");
+
+        juegoBtn3.setBackground(new java.awt.Color(236, 211, 120));
+        juegoBtn3.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        juegoBtn3.setText("añadir al carrito");
+
+        juegoBtn4.setBackground(new java.awt.Color(236, 211, 120));
+        juegoBtn4.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        juegoBtn4.setText("añadir al carrito");
+
+        juegoBtn5.setBackground(new java.awt.Color(236, 211, 120));
+        juegoBtn5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        juegoBtn5.setText("añadir al carrito");
+
+        juegoBtn6.setBackground(new java.awt.Color(236, 211, 120));
+        juegoBtn6.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        juegoBtn6.setText("añadir al carrito");
+
+        juegoBtn7.setBackground(new java.awt.Color(236, 211, 120));
+        juegoBtn7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        juegoBtn7.setText("añadir al carrito");
+
+        juegoBtn8.setBackground(new java.awt.Color(236, 211, 120));
+        juegoBtn8.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        juegoBtn8.setText("añadir al carrito");
+
+        javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
+        Fondo.setLayout(FondoLayout);
+        FondoLayout.setHorizontalGroup(
+            FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(logo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titulo)
+                .addGap(296, 296, 296)
+                .addComponent(carrito)
+                .addGap(14, 14, 14))
+            .addComponent(divisor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(FondoLayout.createSequentialGroup()
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(FondoLayout.createSequentialGroup()
+                                .addComponent(juego1)
+                                .addGap(93, 93, 93)
+                                .addComponent(juego2)
+                                .addGap(93, 93, 93)
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(juego3)
+                                    .addComponent(juego7)))
+                            .addGroup(FondoLayout.createSequentialGroup()
+                                .addComponent(juego5)
+                                .addGap(93, 93, 93)
+                                .addComponent(juego6)))
+                        .addGap(93, 93, 93)
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(juego4)
+                            .addComponent(juego8)))
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(juegoBtn1)
+                            .addComponent(juegoBtn5))
+                        .addGap(49, 49, 49)
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(FondoLayout.createSequentialGroup()
+                                .addComponent(juegoBtn2)
+                                .addGap(63, 63, 63)
+                                .addComponent(juegoBtn3))
+                            .addGroup(FondoLayout.createSequentialGroup()
+                                .addComponent(juegoBtn6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(juegoBtn7)))
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(FondoLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(juegoBtn4))
+                            .addGroup(FondoLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                                .addComponent(juegoBtn8)))))
+                .addGap(49, 49, 49))
+        );
+        FondoLayout.setVerticalGroup(
+            FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FondoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(carrito)
+                    .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(titulo)
+                        .addComponent(logo)))
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(divisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(juego2)
+                            .addComponent(juego1)
+                            .addComponent(juego3)))
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(juego4)))
+                .addGap(18, 18, 18)
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(juegoBtn3)
+                    .addComponent(juegoBtn4)
+                    .addComponent(juegoBtn2)
+                    .addComponent(juegoBtn1))
+                .addGap(79, 79, 79)
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(juego7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(juego5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(juego6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(juego8, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(juegoBtn6)
+                    .addComponent(juegoBtn7)
+                    .addComponent(juegoBtn8)
+                    .addComponent(juegoBtn5))
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void juegoBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juegoBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_juegoBtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +291,27 @@ public class frmTienda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Fondo;
+    private javax.swing.JButton carrito;
+    private javax.swing.JPanel divisor;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JLabel juego1;
+    private javax.swing.JLabel juego2;
+    private javax.swing.JLabel juego3;
+    private javax.swing.JLabel juego4;
+    private javax.swing.JLabel juego5;
+    private javax.swing.JLabel juego6;
+    private javax.swing.JLabel juego7;
+    private javax.swing.JLabel juego8;
+    private javax.swing.JButton juegoBtn1;
+    private javax.swing.JButton juegoBtn2;
+    private javax.swing.JButton juegoBtn3;
+    private javax.swing.JButton juegoBtn4;
+    private javax.swing.JButton juegoBtn5;
+    private javax.swing.JButton juegoBtn6;
+    private javax.swing.JButton juegoBtn7;
+    private javax.swing.JButton juegoBtn8;
+    private javax.swing.JLabel logo;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }
