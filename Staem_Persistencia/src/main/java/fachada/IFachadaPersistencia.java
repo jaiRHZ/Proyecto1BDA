@@ -6,6 +6,7 @@
 package fachada;
 
 import dominio.*;
+import java.util.List;
 
 /**
  *
@@ -17,4 +18,8 @@ public interface IFachadaPersistencia {
     public Comprador agregarComprador(Comprador comprador);
 
     public Comprador consultarComprador(Comprador comprador);
+
+    public Copia consultarCopia(Integer id);
+
+    public Compra agregarCompra(Compra compra, List<Copia> copias);
 }

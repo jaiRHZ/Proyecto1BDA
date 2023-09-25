@@ -4,16 +4,31 @@
  */
 package formulario;
 
+import dominio.Comprador;
+import dominio.Copia;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author santi
  */
 public class frmTienda extends javax.swing.JFrame {
 
+    List<Integer> listaVideojuegos;
+    Comprador comprador;
+
     /**
      * Creates new form frmTienda
      */
     public frmTienda() {
+        this.listaVideojuegos = new ArrayList<>();
+        initComponents();
+    }
+
+    public frmTienda(Comprador comprador) {
+        this.comprador = comprador;
+        this.listaVideojuegos = new ArrayList<>();
         initComponents();
     }
 
@@ -83,30 +98,65 @@ public class frmTienda extends javax.swing.JFrame {
         juegoBtn2.setBackground(new java.awt.Color(236, 211, 120));
         juegoBtn2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         juegoBtn2.setText("añadir al carrito");
+        juegoBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                juegoBtn2ActionPerformed(evt);
+            }
+        });
 
         juegoBtn3.setBackground(new java.awt.Color(236, 211, 120));
         juegoBtn3.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         juegoBtn3.setText("añadir al carrito");
+        juegoBtn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                juegoBtn3ActionPerformed(evt);
+            }
+        });
 
         juegoBtn4.setBackground(new java.awt.Color(236, 211, 120));
         juegoBtn4.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         juegoBtn4.setText("añadir al carrito");
+        juegoBtn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                juegoBtn4ActionPerformed(evt);
+            }
+        });
 
         juegoBtn5.setBackground(new java.awt.Color(236, 211, 120));
         juegoBtn5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         juegoBtn5.setText("añadir al carrito");
+        juegoBtn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                juegoBtn5ActionPerformed(evt);
+            }
+        });
 
         juegoBtn6.setBackground(new java.awt.Color(236, 211, 120));
         juegoBtn6.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         juegoBtn6.setText("añadir al carrito");
+        juegoBtn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                juegoBtn6ActionPerformed(evt);
+            }
+        });
 
         juegoBtn7.setBackground(new java.awt.Color(236, 211, 120));
         juegoBtn7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         juegoBtn7.setText("añadir al carrito");
+        juegoBtn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                juegoBtn7ActionPerformed(evt);
+            }
+        });
 
         juegoBtn8.setBackground(new java.awt.Color(236, 211, 120));
         juegoBtn8.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         juegoBtn8.setText("añadir al carrito");
+        juegoBtn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                juegoBtn8ActionPerformed(evt);
+            }
+        });
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Staem.png"))); // NOI18N
 
@@ -247,11 +297,49 @@ public class frmTienda extends javax.swing.JFrame {
 
     private void juegoBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juegoBtn1ActionPerformed
         // TODO add your handling code here:
+        listaVideojuegos.add(1);
     }//GEN-LAST:event_juegoBtn1ActionPerformed
 
     private void carritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carritoActionPerformed
         // TODO add your handling code here:
+        frmCarrito carrito = new frmCarrito(comprador, listaVideojuegos);
+        carrito.setVisible(true);
     }//GEN-LAST:event_carritoActionPerformed
+
+    private void juegoBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juegoBtn2ActionPerformed
+        // TODO add your handling code here:
+        listaVideojuegos.add(2);
+    }//GEN-LAST:event_juegoBtn2ActionPerformed
+
+    private void juegoBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juegoBtn3ActionPerformed
+        // TODO add your handling code here:
+        listaVideojuegos.add(3);
+    }//GEN-LAST:event_juegoBtn3ActionPerformed
+
+    private void juegoBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juegoBtn4ActionPerformed
+        // TODO add your handling code here:
+        listaVideojuegos.add(4);
+    }//GEN-LAST:event_juegoBtn4ActionPerformed
+
+    private void juegoBtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juegoBtn5ActionPerformed
+        // TODO add your handling code here:
+        listaVideojuegos.add(5);
+    }//GEN-LAST:event_juegoBtn5ActionPerformed
+
+    private void juegoBtn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juegoBtn6ActionPerformed
+        // TODO add your handling code here:
+        listaVideojuegos.add(6);
+    }//GEN-LAST:event_juegoBtn6ActionPerformed
+
+    private void juegoBtn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juegoBtn7ActionPerformed
+        // TODO add your handling code here:
+        listaVideojuegos.add(7);
+    }//GEN-LAST:event_juegoBtn7ActionPerformed
+
+    private void juegoBtn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juegoBtn8ActionPerformed
+        // TODO add your handling code here:
+        listaVideojuegos.add(8);
+    }//GEN-LAST:event_juegoBtn8ActionPerformed
 
     /**
      * @param args the command line arguments

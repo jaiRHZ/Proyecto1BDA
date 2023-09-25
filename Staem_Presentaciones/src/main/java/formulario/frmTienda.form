@@ -213,6 +213,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="a&#xf1;adir al carrito"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="juegoBtn2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="juegoBtn3">
           <Properties>
@@ -224,6 +227,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="a&#xf1;adir al carrito"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="juegoBtn3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="juegoBtn4">
           <Properties>
@@ -235,6 +241,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="a&#xf1;adir al carrito"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="juegoBtn4ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="juegoBtn5">
           <Properties>
@@ -246,6 +255,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="a&#xf1;adir al carrito"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="juegoBtn5ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="juegoBtn6">
           <Properties>
@@ -257,6 +269,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="a&#xf1;adir al carrito"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="juegoBtn6ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="juegoBtn7">
           <Properties>
@@ -268,6 +283,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="a&#xf1;adir al carrito"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="juegoBtn7ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="juegoBtn8">
           <Properties>
@@ -279,6 +297,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="a&#xf1;adir al carrito"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="juegoBtn8ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="logo">
           <Properties>

@@ -6,6 +6,8 @@
 package fabricaNegocio;
 
 import negocio.CompradoresNegocio;
+import negocio.CopiasNegocio;
+import negocio.CompraNegocio;
 
 /**
  *
@@ -14,5 +16,9 @@ import negocio.CompradoresNegocio;
 public interface IFabricaNegocio {
 
     public CompradoresNegocio crearCompradoresNegocio();
+
+    public CopiasNegocio crearCopiassNegocio();
+
+    public CompraNegocio crearCompraNegocio();
 
 }

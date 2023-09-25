@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 import dominio.Copia;
+import dominio.Videojuego;
 import interfacesDAO.ICopiasDAO;
 
 /**
@@ -65,7 +66,41 @@ public class CopiasDAO implements ICopiasDAO {
     }
 
     @Override
-    public Copia consultarCopia(Copia copia) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Copia consultarCopia(Integer id) throws SQLException {
+        String sql = "select * from copias where idCopia = ?";
+        try (Connection conexion = conexionBD.getConnection();
+                PreparedStatement comando = conexion.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);) {
+            comando.setInt(1, id);
+            ResultSet resultado = comando.executeQuery();
+            if (resultado.next()) {
+                Copia copia = new Copia();
+                copia.setId(resultado.getInt("idCopia"));
+                copia.setPrecio(resultado.getFloat("precio"));
+                copia.setVideojuego(this.consultarVideojuego(resultado.getInt("idVideojuego")));
+                return copia;
+            }
+        } catch (Exception ex) {
+
+            throw new SQLException("No se pudo consultar la copia " + ex.getMessage());
+        }
+        return null;
+    }
+
+    public Videojuego consultarVideojuego(Integer id) {
+        String sql = "select * from videojuegos where idJuego = ?";
+        try (Connection conexion = conexionBD.getConnection();
+                PreparedStatement comando = conexion.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);) {
+            comando.setInt(1, id);
+            ResultSet resultado = comando.executeQuery();
+            if (resultado.next()) {
+                Videojuego videojuego = new Videojuego();
+                videojuego.setId(resultado.getInt("idJuego"));
+                videojuego.setTitulo(resultado.getString("titulo"));
+                return videojuego;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 }

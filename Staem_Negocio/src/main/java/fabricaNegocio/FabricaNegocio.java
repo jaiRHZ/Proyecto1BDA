@@ -8,6 +8,8 @@ package fabricaNegocio;
 import fachada.FachadaPersistencia;
 import negocio.CompradoresNegocio;
 import fachada.IFachadaPersistencia;
+import negocio.CopiasNegocio;
+import negocio.CompraNegocio;
 
 /**
  *
@@ -24,6 +26,16 @@ public class FabricaNegocio implements IFabricaNegocio {
     @Override
     public CompradoresNegocio crearCompradoresNegocio() {
         return new CompradoresNegocio(fachadaPersistencia);
+    }
+
+    @Override
+    public CopiasNegocio crearCopiassNegocio() {
+        return new CopiasNegocio(fachadaPersistencia);
+    }
+
+    @Override
+    public CompraNegocio crearCompraNegocio() {
+        return new CompraNegocio(fachadaPersistencia);
     }
 
 }

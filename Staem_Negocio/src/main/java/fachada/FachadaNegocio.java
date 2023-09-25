@@ -5,9 +5,12 @@
  */
 package fachada;
 
+import dominio.Compra;
 import fabricaNegocio.FabricaNegocio;
 import dominio.Comprador;
+import dominio.Copia;
 import fabricaNegocio.IFabricaNegocio;
+import java.util.List;
 
 /**
  *
@@ -29,6 +32,16 @@ public class FachadaNegocio implements IFachadaNegocio {
     @Override
     public Comprador consultarComprador(Comprador comprador) {
         return fabricaNegocio.crearCompradoresNegocio().consultarComprador(comprador);
+    }
+
+    @Override
+    public Copia consultarCopia(Integer id) {
+        return fabricaNegocio.crearCopiassNegocio().consultarCopia(id);
+    }
+
+    @Override
+    public Compra agregarCompra(Compra compra, List<Copia> copias) {
+        return fabricaNegocio.crearCompraNegocio().agregarCompra(compra, copias);
     }
 
 }

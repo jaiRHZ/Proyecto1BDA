@@ -5,11 +5,14 @@
  */
 package fachada;
 
+import dominio.Compra;
 import fabricaDAO.FabricaDAO;
 import fabricaDAO.IFabricaDAO;
 import dominio.Comprador;
+import dominio.Copia;
 import excepciones.SQLException;
 import interfacesDAO.ICompradoresDAO;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,6 +43,26 @@ public class FachadaPersistencia implements IFachadaPersistencia {
     public Comprador consultarComprador(Comprador comprador) {
         try {
             return fabricaDAO.crearCompradoresDAO().consultarComprador(comprador);
+        } catch (SQLException ex) {
+            Logger.getLogger(FachadaPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @Override
+    public Copia consultarCopia(Integer id) {
+        try {
+            return fabricaDAO.crearCopiassDAO().consultarCopia(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(FachadaPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @Override
+    public Compra agregarCompra(Compra compra, List<Copia> copias) {
+        try {
+            return fabricaDAO.crearComprasDAO().agregarCompra(compra, copias);
         } catch (SQLException ex) {
             Logger.getLogger(FachadaPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }

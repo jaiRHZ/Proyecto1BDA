@@ -198,7 +198,7 @@ public class frmLogin extends javax.swing.JFrame {
         try {
             Comprador consultarComprador = fachadaNegocio.consultarComprador(this.extaerDatos());
             if (consultarComprador != null) {
-                frmTienda tiendita = new frmTienda();
+                frmTienda tiendita = new frmTienda(consultarComprador);
                 tiendita.setVisible(true);
                 this.dispose();
             }

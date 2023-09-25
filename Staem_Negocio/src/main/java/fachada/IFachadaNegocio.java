@@ -5,7 +5,10 @@
  */
 package fachada;
 
+import dominio.Compra;
 import dominio.Comprador;
+import dominio.Copia;
+import java.util.List;
 
 /**
  *
@@ -16,4 +19,8 @@ public interface IFachadaNegocio {
     public Comprador agregarComprador(Comprador comprador);
 
     public Comprador consultarComprador(Comprador comprador);
+
+    public Copia consultarCopia(Integer id);
+
+    public Compra agregarCompra(Compra compra, List<Copia> copias);
 }

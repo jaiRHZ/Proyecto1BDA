@@ -4,17 +4,61 @@
  */
 package formulario;
 
+import dominio.Compra;
+import dominio.Comprador;
+import dominio.Copia;
+import fachada.FachadaNegocio;
+import fachada.IFachadaNegocio;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author HP
  */
-public class frmCarrito extends javax.swing.JFrame {
+public final class frmCarrito extends javax.swing.JFrame {
+    
+    Comprador comprador;
+    List<Copia> listaCopias;
+    private final IFachadaNegocio fachadaNegocio;
+    float total;
 
     /**
      * Creates new form frmCarrito
      */
     public frmCarrito() {
         initComponents();
+        this.fachadaNegocio = new FachadaNegocio();
+    }
+    
+    public frmCarrito(Comprador comprador, List<Integer> listaVideojuegos) {
+        initComponents();
+        this.comprador = comprador;
+        this.fachadaNegocio = new FachadaNegocio();
+        this.listaCopias = new ArrayList<>();
+        for (int i = 0; i < listaVideojuegos.size(); i++) {
+            Copia copia = fachadaNegocio.consultarCopia(listaVideojuegos.get(i));
+            this.listaCopias.add(copia);
+            total += copia.getPrecio();
+        }
+        this.totalField.setText(String.valueOf(total));
+        this.llenarTablaCarrito();
+    }
+    
+    public void llenarTablaCarrito() {
+        
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaVidejuegos.getModel();
+        // Limpia tabla anterior
+        modeloTabla.setRowCount(0);
+        listaCopias.forEach(copia -> {
+            Object[] fila = {
+                copia.getVideojuego().getTitulo(),
+                copia.getPrecio()
+            };
+            modeloTabla.addRow(fila);
+        }
+        );
     }
 
     /**
@@ -30,15 +74,15 @@ public class frmCarrito extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaVidejuegos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        totalField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(115, 46, 168));
@@ -51,46 +95,57 @@ public class frmCarrito extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Carrito");
 
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaVidejuegos.setForeground(new java.awt.Color(60, 63, 65));
+        tablaVidejuegos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Nombre", "Cantidad", "Precio"
+                "Nombre", "Precio"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaVidejuegos);
 
         jButton1.setBackground(new java.awt.Color(236, 211, 120));
         jButton1.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Comprar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(236, 211, 120));
         jButton2.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 51, 51));
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Total:");
 
-        jTextField1.setBackground(new java.awt.Color(115, 46, 168));
-        jTextField1.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("$$$");
+        totalField.setEditable(false);
+        totalField.setBackground(new java.awt.Color(115, 46, 168));
+        totalField.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
+        totalField.setForeground(new java.awt.Color(255, 255, 255));
+        totalField.setText("$$$");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carrito.png"))); // NOI18N
 
@@ -123,7 +178,7 @@ public class frmCarrito extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +205,7 @@ public class frmCarrito extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(24, 24, 24)))
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
@@ -172,6 +227,19 @@ public class frmCarrito extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Compra compra = new Compra();
+        compra.setComprador(comprador);
+        // TODO add your handling code here:
+        Compra agregarCompra = fachadaNegocio.agregarCompra(compra, listaCopias);
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -189,13 +257,17 @@ public class frmCarrito extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmCarrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmCarrito.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmCarrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmCarrito.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmCarrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmCarrito.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmCarrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmCarrito.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -216,8 +288,8 @@ public class frmCarrito extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel logo;
+    private javax.swing.JTable tablaVidejuegos;
+    private javax.swing.JTextField totalField;
     // End of variables declaration//GEN-END:variables
 }
