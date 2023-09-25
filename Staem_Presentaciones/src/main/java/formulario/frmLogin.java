@@ -125,7 +125,7 @@ public class frmLogin extends javax.swing.JFrame {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(logo)
-                .addGap(235, 235, 235)
+                .addGap(210, 210, 210)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -194,16 +194,18 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioActionPerformed
 
     private void iniciar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciar_sesionActionPerformed
+
         try {
-            // TODO add your handling code here:
-            fachadaNegocio.consultarComprador(this.extaerDatos());
+            Comprador consultarComprador = fachadaNegocio.consultarComprador(this.extaerDatos());
+            if (consultarComprador != null) {
+                frmTienda tiendita = new frmTienda();
+                tiendita.setVisible(true);
+                this.dispose();
+            }
 
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception e) {
-            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, e);
         }
-
     }//GEN-LAST:event_iniciar_sesionActionPerformed
 
     public Comprador extaerDatos() throws NoSuchAlgorithmException {
