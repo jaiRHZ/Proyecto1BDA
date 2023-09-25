@@ -52,7 +52,6 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
         nombres = new javax.swing.JTextField();
         numero = new javax.swing.JTextField();
         codigoPostal = new javax.swing.JTextField();
-        logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -263,22 +262,15 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
             }
         });
 
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Staem.png"))); // NOI18N
-
         javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
         Fondo.setLayout(FondoLayout);
         FondoLayout.setHorizontalGroup(
             FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(FondoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Registro))
-                    .addGroup(FondoLayout.createSequentialGroup()
-                        .addComponent(logo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Registro)
+                    .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(215, 215, 215))
             .addGroup(FondoLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
@@ -315,11 +307,7 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
             FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoLayout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                    .addGroup(FondoLayout.createSequentialGroup()
-                        .addComponent(logo)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Registro)
                 .addGap(41, 41, 41)
@@ -615,7 +603,6 @@ public class frmRegistarUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField codigoPostal;
     private javax.swing.JTextField contrasenya;
     private javax.swing.JTextField email;
-    private javax.swing.JLabel logo;
     private javax.swing.JTextField nombres;
     private javax.swing.JTextField numero;
     private javax.swing.JButton registrar;
