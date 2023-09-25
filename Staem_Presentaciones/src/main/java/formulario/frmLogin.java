@@ -60,6 +60,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         iniciar_sesion.setBackground(new java.awt.Color(236, 211, 120));
         iniciar_sesion.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        iniciar_sesion.setForeground(new java.awt.Color(51, 51, 51));
         iniciar_sesion.setText("Iniciar sesion");
         iniciar_sesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +70,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         registrarse.setBackground(new java.awt.Color(236, 211, 120));
         registrarse.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        registrarse.setForeground(new java.awt.Color(51, 51, 51));
         registrarse.setText("Registrarse");
         registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +157,6 @@ public class frmLogin extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(inicio)
                         .addGap(37, 37, 37)
                         .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
